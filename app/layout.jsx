@@ -11,7 +11,7 @@ const MainLayout = ({children}) => {
   return (
     <html lang="ru">
         <body>
-            <div className="bg-green-600">
+            <div className="bg-green-600 h-screen text-orange-300">
                 {children}
             </div>
         </body>
