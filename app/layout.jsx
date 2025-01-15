@@ -1,4 +1,5 @@
 import React from 'react'
+import  Navbar from '../components/Navbar';
 import '@/assets/styles/global.css'
 
 export const metadata = {
@@ -11,9 +12,10 @@ const MainLayout = ({children}) => {
   return (
     <html lang="ru">
         <body>
-            <div className="bg-green-600 h-screen text-orange-300">
+            <Navbar/>
+            <main className="bg-green-600 h-screen text-orange-300">
                 {children}
-            </div>
+            </main>
         </body>
     </html>
     
