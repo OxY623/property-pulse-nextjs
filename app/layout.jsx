@@ -1,6 +1,6 @@
 import React from 'react'
 import  Navbar from '../components/Navbar';
-import '@/assets/styles/global.css'
+import '../assets/styles/global.css'
 
 export const metadata = {
   title: "PropertyPulse | Find The Perfect Rental",
@@ -13,7 +13,7 @@ const MainLayout = ({children}) => {
     <html lang="ru">
         <body>
             <Navbar/>
-            <main className="bg-green-600 h-screen text-orange-300">
+            <main className="h-screen">
                 {children}
             </main>
         </body>
