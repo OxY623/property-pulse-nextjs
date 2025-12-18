@@ -1,25 +1,21 @@
-import React from 'react'
-import  Navbar from '../components/Navbar';
-import '../assets/styles/global.css'
+import "../assets/styles/global.css";
+import Navbar from "../components/Navbar";
 
 export const metadata = {
   title: "PropertyPulse | Find The Perfect Rental",
   description: "Find your dream rental property",
-  keywords: "rental, find rental, find properties"
-}
+  keywords: "rental, find rental, find properties",
+};
 
-const MainLayout = ({children}) => {
+const MainLayout = ({ children }) => {
   return (
-    <html lang="ru">
-        <body>
-            <Navbar/>
-            <main className="h-screen">
-                {children}
-            </main>
-        </body>
+    <html lang="en">
+      <body>
+        <Navbar />
+        <main className="h-screen">{children}</main>
+      </body>
     </html>
-    
-  )
-}
+  );
+};
 
-export default MainLayout
+export default MainLayout;
