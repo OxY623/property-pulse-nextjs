@@ -36,3 +36,21 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+Create PSQL DB
+`psql -h localhost -p 5432 -U postgres
+`
+`CREATE DATABASE property_pulse;
+`
+`CREATE USER app_user WITH PASSWORD 'password';
+`
+`GRANT ALL PRIVILEGES ON DATABASE property_pulse TO app_user;
+`
+
+`psql -U app_user -d property_pulse
+`
+Create tables at DB
+`npx prisma migrate dev --name init
+`
+
+Analizy `npx prisma studio --config ./prisma.config.ts`

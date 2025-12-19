@@ -1,14 +1,16 @@
-import React from "react";
-import Hero from "../components/Hero" 
-import InfoBoxes from "../components/InfoBoxes" 
-import Footer from "../components/Footer"
+import Hero from "../components/Hero";
+import HomeProperties from "../components/HomeProperties";
+import InfoBoxes from "../components/InfoBoxes";
 
 function HomePage() {
-  return <>
-    <Hero /> 
-     <InfoBoxes />
-    <Footer />
-  </>;
+  console.log(process.env.MONGODB_URI);
+  return (
+    <>
+      <Hero />
+      <InfoBoxes />
+      <HomeProperties />
+    </>
+  );
 }
 
 export default HomePage;

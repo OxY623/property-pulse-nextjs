@@ -1,4 +1,5 @@
 import "../assets/styles/global.css";
+import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
 export const metadata = {
@@ -11,8 +12,11 @@ const MainLayout = ({ children }) => {
   return (
     <html lang="en">
       <body>
-        <Navbar />
-        <main className="h-screen">{children}</main>
+        <div className="flex flex-col min-h-screen">
+          <Navbar />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
