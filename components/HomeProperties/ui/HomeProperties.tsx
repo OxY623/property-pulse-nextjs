@@ -1,9 +1,16 @@
 import Link from "next/link";
-import properties from "../../../properties.json";
+import { IProperty } from "../../../types";
+import { fetchProperties } from "../../../utils/requests";
 import PropertyCard from "../../PropertyCard";
 
-const HomeProperties = () => {
-  const recentProperties = properties
+const HomeProperties = async () => {
+  const propertiesRes = await fetchProperties();
+
+  const propertiesArray: IProperty[] = Array.isArray(propertiesRes)
+    ? propertiesRes
+    : propertiesRes.data ?? [];
+
+  const recentProperties: IProperty[] = propertiesArray
     .sort(() => Math.random() - Math.random())
     .slice(0, 3);
 
@@ -19,7 +26,7 @@ const HomeProperties = () => {
               <p>No properties found</p>
             ) : (
               recentProperties.map((property) => (
-                <PropertyCard key={property._id} property={property} />
+                <PropertyCard key={property.id} property={property} />
               ))
             )}
           </div>

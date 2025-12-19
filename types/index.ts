@@ -10,7 +10,7 @@ export interface IUser {
 
 export interface IProperty {
   id: string;
-  bookmarkedBy: IUser[];
+  bookmarkedBy?: string[];
   ownerId: string;
   name: string;
   type: string;

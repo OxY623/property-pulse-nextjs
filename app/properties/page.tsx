@@ -1,10 +1,15 @@
 //import properties from '../../properties.json'
 import PropertyCard from "../../components/PropertyCard";
 import { IProperty } from "../../types/index";
-import prisma from "../lib/prisma";
+import { fetchProperties } from "../../utils/requests";
 
 const PropertiesPage = async () => {
-  const properties: IProperty[] = await prisma.property.findMany();
+  // const properties: IProperty[] = await prisma.property.findMany();
+  const properties: IProperty[] = await fetchProperties();
+
+  (properties as IProperty[]).sort(
+    (a, b) => Date.parse(String(b.createdAt)) - Date.parse(String(a.createdAt))
+  );
 
   return (
     <section className="px-4 py-6">

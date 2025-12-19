@@ -1,13 +1,24 @@
 export const runtime = "nodejs";
+
 import { NextResponse } from "next/server";
 import prisma from "../../lib/prisma";
 
-export const GET = async () => {
+export async function GET(request: Request) {
   try {
-    const data = await prisma.property.findMany();
-    return NextResponse.json(data);
+    const properties = await prisma.property.findMany({});
+
+    return NextResponse.json({
+      data: properties,
+      meta: {
+        count: properties.length,
+      },
+    });
   } catch (error) {
-    console.error(error);
-    return new Response("Something Went Wrong", { status: 500 });
+    console.error("[GET /api/properties]", error);
+
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 }
+    );
   }
-};
+}
